@@ -1,3 +1,3 @@
 import router from '@/router'
-
-export default { router }
+import store from '@/store'
+export default { router, store }
