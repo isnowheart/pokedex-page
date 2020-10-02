@@ -1,4 +1,4 @@
-import regionsServices from './services/regions'
+import regionsServices from '@/services/regions'
 
 const state = { regionsList: {} }
 
@@ -8,7 +8,7 @@ const actions = {
 
         commit('setRegionsList', data)
     }
-},
+}
 
 const mutations = {
     setRegionsList(state, payload) {

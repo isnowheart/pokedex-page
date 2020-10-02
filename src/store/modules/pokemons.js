@@ -1,4 +1,4 @@
-import pokemonsServices from './services/pokemons'
+import pokemonsServices from '@/services/pokemons'
 
 const state = { pokemonsList: {} }
 
@@ -8,7 +8,7 @@ const actions = {
 
         commit('setPokemonsList', data)
     }
-},
+}
 
 const mutations = {
     setPokemonsList(state, payload) {
