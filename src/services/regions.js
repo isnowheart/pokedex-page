@@ -1,7 +1,14 @@
 import api from './pokeApi'
 
-function list(){
+function list() {
     return api.get('/region')
 }
 
-export default { list }
+function listPokedexesInRegion(regionName) {
+    return api.get(`/region/${regionName}`)
+}
+
+export default { 
+    list,
+    listPokedexesInRegion,
+ }

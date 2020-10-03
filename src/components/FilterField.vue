@@ -13,8 +13,10 @@ export default {
   },
 
   props: {
-    type: String,
-    default: 'Pesquisar'
+    placeholder: {
+      type: String,
+      default: 'Pesquisar'
+    }
   },
 
   methods: {

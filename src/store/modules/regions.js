@@ -1,7 +1,7 @@
 import regionsServices from '@/services/regions'
 import { deepClone } from 'paliari-js-utils'
 
-const state = { regionsList: {}, filteredRegionsList: {} }
+const state = { regionsList: {}, filteredRegionsList: {}, pokedexesList: [] }
 
 const actions = { 
     async fetchRegionsList({ commit }){
@@ -9,9 +9,16 @@ const actions = {
 
         commit('setRegionsList', data)
     },
+
     filterRegionsList({ commit }, textToFilter) {
         commit('filterRegionsList', textToFilter)
-    }
+    },
+
+    async fetchPokedexesInRegionList({ commit }, regionName) {
+        const { data } = await regionsServices.listPokedexesInRegion(regionName)
+
+        commit('setPokedexesList', data.pokedexes)
+    },
 }
 
 const mutations = {
@@ -20,8 +27,7 @@ const mutations = {
         state.filteredRegionsList = deepClone(state.regionsList)
     },
 
-
-     filterRegionsList(state, payload) {
+    filterRegionsList(state, payload) {
         if (payload) {
           const regExp = new RegExp(payload.toLowerCase(), 'g')
           const originalList = deepClone(state.regionsList)
@@ -32,7 +38,9 @@ const mutations = {
         state.filteredRegionsList.results = state.regionsList.results
       },
 
-
+      setPokedexesList(state, payload) {
+          state.pokedexesList = payload
+      },
 }
 
 export default { namespaced: true, state, actions, mutations }
