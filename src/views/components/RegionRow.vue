@@ -1,6 +1,6 @@
 <template lang="pug">
-router-link.card(:to="{ name: 'regions.pokemonsList', params: { regionName: region.name }}")
-  .card-header {{region.name}}
+router-link.card.card-text-color(:to="{ name: 'regions.pokemonsList', params: { regionName: region.name }}")
+  .card-header {{region.name | capitalize}}
 </template>
 
 <script>
