@@ -8,7 +8,7 @@
       figure.avatar.avatar-lg
         img(src="../../assets/pokeball.png" alt="Pokeball image")
       .h5 Home
-    router-link.header-button.mr-1(:to="{name: 'home'}")
+    router-link.header-button.mr-1(:to="{name: 'about'}")
       figure.avatar.avatar-lg.avatar-transparent
         img(src="../../assets/pikachu.png" alt="Pikachu image")
       .h5 About
