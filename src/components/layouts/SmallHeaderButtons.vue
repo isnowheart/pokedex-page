@@ -24,30 +24,30 @@
   flex-direction column
   align-items center
 
-  .navbar-app
-    .navbar-section
-      display flex
-      flex-direction row
-      
-    a:visited, a:link, a:active
-      text-decoration none
-      outline none
-      box-shadow none
+.navbar-app
+  .navbar-section
+    display flex
+    flex-direction row
+    
+  a:visited, a:link, a:active
+    text-decoration none
+    outline none
+    box-shadow none
 
-    .header-button 
-      display flex
-      flex-direction column
-      align-items center
-      padding 0 10px
+  .header-button 
+    display flex
+    flex-direction column
+    align-items center
+    padding 0 10px
 
-      &:hover
-        color darken($primary-color, 20%)
+    &:hover
+      color darken($primary-color, 20%)
 
-      .avatar-transparent
-        background rgba(0, 0, 0, 0)
-        border 1px solid rgba(0, 0, 0, .4)
+    .avatar-transparent
+      background rgba(0, 0, 0, 0)
+      border 1px solid rgba(0, 0, 0, .4)
 
-    .title-img
-      height 58px  
-      margin-bottom 10px  
+  .title-img
+    height 58px  
+    margin-bottom 10px  
 </style>

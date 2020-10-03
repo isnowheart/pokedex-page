@@ -23,31 +23,31 @@
 .d-flex
   justify-content space-between
 
-  .navbar-app
+.navbar-app
+  display flex
+  justify-content space-between
+
+  .navbar-section
     display flex
-    justify-content space-between
 
-    .navbar-section
-      display flex
+  a:visited, a:link, a:active
+    text-decoration none
+    outline none
+    box-shadow none
 
-    a:visited, a:link, a:active
-      text-decoration none
-      outline none
-      box-shadow none
+  .header-button 
+    display flex
+    flex-direction column
+    align-items center
+    padding 0 10px
 
-    .header-button 
-      display flex
-      flex-direction column
-      align-items center
-      padding 0 10px
+    &:hover
+      color darken($primary-color, 20%)
 
-      &:hover
-        color darken($primary-color, 20%)
+    .avatar-transparent
+      background rgba(0, 0, 0, 0)
+      border 1px solid rgba(0, 0, 0, .4)
 
-      .avatar-transparent
-        background rgba(0, 0, 0, 0)
-        border 1px solid rgba(0, 0, 0, .4)
-
-    .title-img
-      height 58px    
+  .title-img
+    height 58px    
 </style>
