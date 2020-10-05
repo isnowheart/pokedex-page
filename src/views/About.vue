@@ -3,7 +3,7 @@
   .hero.bg-gray
     .header-about
       figure.img-container
-        img(src="../assets/detective-pikachu.png")
+        img(src="../assets/image/detective-pikachu.png")
       h1 About
     p Simple Pokedex page to list Pokemon's regions, pokedexes and pokemons using &nbsp;
       a(href="https://pokeapi.co" target="_blank") PokeAPI

@@ -3,24 +3,24 @@
     section.navbar-section
       router-link.header-button.mr-1(:to="{name: 'home'}")
         figure.avatar.avatar-lg
-          img(src="../../assets/pokeball.png" alt="Pokeball image")
+          img(src="../../../assets/image/pokeball.png" alt="Pokeball image")
         .h5 Home
     section.navbar-section
       router-link.header-button.mr-1(:to="{name: 'home'}")
-        img.title-img(src="../../assets/app-title.png")
+        img.title-img(src="../../../assets/image/app-title.png")
     section.navbar-section
       router-link.header-button.mr-1(:to="{name: 'about'}")
         figure.avatar.avatar-lg.avatar-transparent
-          img(src="../../assets/pikachu.png" alt="Pikachu image")
+          img(src="../../../assets/image/pikachu.png" alt="Pikachu image")
         .h5 About
       a.header-button.mr-1(href="https://github.com/isnowheart/pokedex-page" target="_blank")
         figure.avatar.avatar-lg.avatar-transparent
-          img(src="../../assets/pokedex.png" alt="Pokedex image")
+          img(src="../../../assets/image/pokedex.png" alt="Pokedex image")
         .h5 Repo
 </template>
 
 <style lang="stylus" scoped>
-@import '../../styles/_variables.styl'
+@import '../../../styles/_variables.styl'
 .d-flex
   justify-content space-between
 
