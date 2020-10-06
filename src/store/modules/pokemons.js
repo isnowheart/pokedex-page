@@ -1,19 +1,38 @@
 import pokedexesServices from '@/services/pokedexes'
 import pokemonsServices from '@/services/pokemons'
+import TotalPagesCount from '@/lib/TotalPagesCount'
 import { deepClone } from 'paliari-js-utils'
 
-const state = { pokemonsList: [], filteredPokemonsList: [] }
+const state = {
+  pokemonsList: [],
+  filteredPokemonsList: [],
+  pokemonsListPages: 0,
+  totalPokemonsEntries: 0,
+  currentPokemon: {},
+}
 
 const actions = {
-  async fetchPokemonsList({ commit }) {
-    const { data } = await pokemonsServices.list()
+  async fetchPokemonsList({ commit }, page = 1) {
+    const { data } = await pokemonsServices.list(page)
+    const totalPages = TotalPagesCount(data.count)
     commit('setPokemonsList', data.results)
+    commit('setPokemonsListPages', totalPages)
+    commit('setTotalPokemonsEntries', data.count)
   },
 
   async fetchPokemonsListInPokedex({ commit }, pokedexName) {
     const { data } = await pokedexesServices.listInPokedex(pokedexName)
 
     commit('setPokemonsList', data.pokemon_entries)
+  },
+
+  filterPokemonsList({ commit }, textToFilter) {
+    commit('filterPokemonsList', textToFilter)
+  },
+
+  async fetchPokemon({ commit }, pokemonName) {
+    const { data } = await pokemonsServices.show(pokemonName)
+    commit('setCurrentPokemon', data)
   },
 }
 
@@ -32,6 +51,18 @@ const mutations = {
     }
 
     state.filteredPokemonsList = originalList
+  },
+
+  setPokemonsListPages(state, payload) {
+    state.pokemonsListPages = payload
+  },
+
+  setTotalPokemonsEntries(state, payload) {
+    state.totalPokemonsEntries = payload
+  },
+
+  setCurrentPokemon(state, payload) {
+    state.currentPokemon = payload
   },
 }
 
