@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import config from '@/config'
+import config from './config'
 
 import './styles'
 
@@ -10,6 +10,3 @@ new Vue({
   ...config,
   render: h => h(App),
 }).$mount('#app')
-
-
-
