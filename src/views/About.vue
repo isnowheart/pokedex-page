@@ -4,18 +4,18 @@
     .header-about
       figure.img-container
         img(src="../assets/image/detective-pikachu.png")
-      h1 About
-    p Simple Pokedex page to list Pokemon's regions, pokedexes and pokemons using &nbsp;
+      h1 Sobre
+    p Página Pokedex simples para listar regiões, pokedexes e pokemons de Pokémon usando &nbsp;
       a(href="https://pokeapi.co" target="_blank") PokeAPI
       span .
     .dependencies-container
-      p.dependencies-paragraph Project made in &nbsp;
+      p.dependencies-paragraph Projeto feito em &nbsp;
         a(href="https://vuejs.org" target="_blank") Vue.JS
-        span &nbsp; and it's bundle (
+        span &nbsp; com os pacotes (
         a(href="https://vuex.vuejs.org" target="_blank") Vuex 
-        span and 
+        span e 
         a(href="https://router.vuejs.org" target="_blank") Vue Router
-        span ), and the following dependencies:
+        span ), e as seguintes dependências:
       dl
         dd 
           a(href="https://www.npmjs.com/package/axios" target="_blank") Axios
@@ -25,7 +25,11 @@
           a(href="https://www.npmjs.com/package/paliari-js-utils" target="_blank") Paliari JS Utils
         dd 
           a(href="https://picturepan2.github.io/spectre/index.html" target="_blank") Spectre.css
-      p Developed with the following Pre-Processors:
+        dd 
+          a(href="https://www.npmjs.com/package/v-toaster" target="_blank") V-Toaster
+        dd 
+          a(href="https://github.com/Yuliang-Lee/vue2-smooth-scroll" target="_blank") Vue2 Smooth Scroll
+      p Desenvolvido com os seguintes Pre-Processadores:
       dl
         dd 
           a(href="https://pugjs.org/api/getting-started.html" target="_blank") Pug

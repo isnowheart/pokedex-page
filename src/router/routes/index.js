@@ -1,5 +1,6 @@
-import regions from './regions'
 import pokedexes from './pokedexes'
+import pokemons from './pokemons'
+import regions from './regions'
 
 const componentImport = view => () => import(`@/views/${view}.vue`)
 
@@ -14,6 +15,7 @@ export default [
       name: 'about',
       component: componentImport('About'),
     },
-    ...regions(componentImport),
     ...pokedexes(componentImport),
+    ...pokemons(componentImport),
+    ...regions(componentImport),
   ]

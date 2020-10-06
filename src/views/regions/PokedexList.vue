@@ -1,32 +1,46 @@
 <template lang="pug">
-.container.grid-xl
-  div(v-if="pokedexesList.length")
-    .columns
-      .column.col-4.col-md-6.col-sm-12(v-for="pokedex in pokedexesList" :key="pokedex.name")
-        row(:pokedex="pokedex")
-  div(v-else)
-    empty-container
-      router-link.btn.btn-primary(slot="action" :to="{ name: 'home' }") Tela inicial
+.container.grid-xl(v-if="!loading")
+  pokedex-list(:pokedexesList="pokedexesList")
+    empty-container(slot="empty-pokedexes" subtitle="This region has no available pokedex.")
+      router-link.btn.btn-primary(slot="action" :to="{ name: 'regions.index' }") Voltar para regiões
+.loading.loading-lg(v-else)
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
-import Row from './components/Row'
+import { mapState, mapActions } from 'vuex'
 import EmptyContainer from '@/components/EmptyContainer'
+import PokedexList from '@/components/pokedexList/Index'
 
 export default {
-  computed: { 
-    ...mapState('regions', ['pokedexesList']),
+  data() {
+    return {
+      loading: false,
+    }
   },
 
-  methods: { 
-      ...mapActions('regions', ['fetchPokedexesInRegionList']),
+  computed: {
+    ...mapState('regions', ['pokedexesList']),
+
+    pokedexesCount() {
+      return this.pokedexesList.length
+    }
+  },
+
+  methods: {
+    ...mapActions('regions', ['fetchPokedexesInRegionList'])
   },
 
   async created() {
+    try {
+      this.loading = true
       await this.fetchPokedexesInRegionList(this.$route.params.regionName)
+    } catch(e) {
+      this.$toaster.error(e.message)
+    } finally {
+      this.loading = false
+    }
   },
 
-    components: { Row, EmptyContainer},        
+  components: { EmptyContainer, PokedexList }
 }
 </script>

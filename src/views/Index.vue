@@ -1,40 +1,29 @@
 <template lang="pug">
-.container.grid-lg
-  filter-field(@search="filterList")
+.container.grid-xl
+  .header.my-3
+    h1.text-center Bem-vindo à Pokedex-page!
+    h5.text-center Explore o aplicativo escolhendo um dos menus abaixo.
   .columns
-    .column.col-4.col-md-6.col-sm-12(v-for="region in filteredRegionsList.results" :key="region.name")
-      region-row(:region="region")
+    .column.col-4.col-md-6.col-sm-12(v-for="item in indexItems" :key="item.title")
+      menu-row(:item="item")
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
-import RegionRow from './components/RegionRow'
-import PokedexRow from './components/PokedexRow'
-import FilterField from '@/components/FilterField'
+import MenuRow from './components/MenuRow'
+import indexItems from '@/config/IndexItems'
 
 export default {
-  computed: { 
-    ...mapState('regions', ['filteredRegionsList']),
-    ...mapState('pokedexes', ['filteredPokedexesList']),
+  data() {
+    return {
+      indexItems
+    }
   },
 
-    methods: { 
-        ...mapActions('regions', ['fetchRegionsList', 'filterRegionsList']),
-        ...mapActions('pokedexes', ['fetchPokedexesList', 'filterPokedexesList']),
-
-      filterList(textToFilter) {
-        this.filterRegionsList(textToFilter)
-        this.filterPokedexesList(textToFilter)
-
-          },
-        },
-
-    async created() {
-        await this.fetchRegionsList()
-        await this.fetchPokedexesList()
-
-    },
-
-    components: { RegionRow, PokedexRow, FilterField},        
+  components: { MenuRow },
 }
 </script>
+
+<style lang="stylus" scoped>
+.my-3
+  margin 30px 0
+</style>

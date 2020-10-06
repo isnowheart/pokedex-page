@@ -1,12 +1,17 @@
 export default componentImport => [
   {
-    path: '/pokedexes/:pokedexName',
+    path: '/pokedexes',
     component: componentImport('pokedexes/Base'),
     children: [
       {
-          path: '/',
-          name: 'pokedexes.pokemonsList',
-          component: componentImport('pokedexes/PokemonList')
+        path: '/',
+        name: 'pokedexes.index',
+        component: componentImport('pokedexes/Index'),
+      },
+      {
+        path: ':pokedexName',
+        name: 'pokedex.pokemonsList',
+        component: componentImport('pokedexes/Pokemons'),
       }
   ],
     }

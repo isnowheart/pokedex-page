@@ -1,41 +1,35 @@
-import pokedexesServices from '@/services/pokedexes'
-import { deepClone } from 'paliari-js-utils'
+import pokedexesServices from "@/services/pokedexes"
+import { deepClone } from "paliari-js-utils"
 
-const state = { pokedexesList: {}, filteredPokedexesList: {}, pokemonsList: [] }
+const state = { pokedexesList: [], filteredPokedexesList: [] }
 
-const actions = { 
-    async fetchPokedexesList({ commit }){
-        const { data } = await pokedexesServices.list()
+const actions = {
+  async fetchPokedexesList({ commit }) {
+    const { data } = await pokedexesServices.list()
+    commit('setPokedexesList', data.results)
+  },
 
-        commit('setPokedexesList', data)
-    },
-
-    async fetchPokemonsInPokedexList({ commit }, pokedexName) {
-        const { data } = await pokedexesServices.listPokemonsInPokedexes(pokedexName)
-        commit('setPokemonsList', data.pokemons)
-    },
+  filterPokedexesList({ commit }, textToFilter) {
+    commit('filterPokedexesList', textToFilter)
+  },
 }
 
 const mutations = {
-    setPokedexesList(state, payload) {
-        state.pokedexesList = payload
-        state.filteredPokedexesList = deepClone(state.pokedexesList)
-    },
+  setPokedexesList(state, payload) {
+    state.pokedexesList = payload
+    state.filteredPokedexesList = deepClone(state.pokedexesList)
+  },
 
-    filterPokedexesList(state, payload) {
-        if (payload) {
-          const regExp = new RegExp(payload.toLowerCase(), 'g')
-          const originalList = deepClone(state.pokedexesList)
-          state.filteredPokedexesList.pokemon_entries.entry_number = originalList.pokemon_entries.entry_number.filter(pokedex => !regExp[Symbol.search](pokedex.name.toLowerCase()))
-          return
-        }
-    
-        state.filteredPokedexesList.pokemon_entries.entry_number = state.pokedexesList.pokemon_entries.entry_number
-      },
+  filterPokedexesList(state, payload) {
+    const originalList = deepClone(state.pokedexesList)
+    if (payload) {
+      const regExp = new RegExp(payload.toLowerCase(), 'g')
+      state.filteredPokedexesList = originalList.filter(pokemon => !regExp[Symbol.search](pokemon.name.toLowerCase()))
+      return
+    }
 
-    setPokemonsList(state, payload) {
-        state.pokemonsList = payload
-    },
+    state.filteredPokedexesList = originalList
+  },
 }
 
 export default { namespaced: true, state, actions, mutations }

@@ -1,12 +1,15 @@
 <template lang="pug">
-router-link.card.card-text-color(:to="{ name: 'pokemons.show', params: { pokemonName: pokemon.pokemon_species.name } }")
-  .card-header.text-size {{pokemon.entry_number}} - {{pokemon.pokemon_species.name | normalize}}
+router-link.card.card-text-color(:to="{ name: item.link }")
+  .card-header.text-size
+    i.mr-3(:class="item.icon")
+    span {{item.title}}
 </template>
+
 
 <script>
 export default {
   props: {
-    pokemon: {
+    item: {
       type: Object,
       required: true,
     },
@@ -19,4 +22,8 @@ export default {
   margin-top 10px
   margin-bottom 10px
   text-decoration none
+
+  .card-header
+    .mr-3
+      margin-right 20px
 </style>

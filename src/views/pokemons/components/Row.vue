@@ -1,6 +1,6 @@
 <template lang="pug">
-router-link.card.card-text-color(:to="{ name: 'pokemons.show', params: { pokemonName: pokemon.pokemon_species.name } }")
-  .card-header.text-size {{pokemon.entry_number}} - {{pokemon.pokemon_species.name | normalize}}
+router-link.card.card-text-color(:to="{ name: 'pokemons.show', params: { pokemonName: pokemon.name } }")
+  .card-header.text-size {{pokemon.name | normalize}}
 </template>
 
 <script>

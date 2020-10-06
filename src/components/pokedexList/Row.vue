@@ -1,6 +1,6 @@
 <template lang="pug">
-.card.card-text-color
-  .card-header {{pokedex.name | normalize}}
+router-link.card.card-text-color(:to="{ name: 'pokedex.pokemonsList', params: { pokedexName: pokedex.name } }")
+  .card-header.text-size {{pokedex.name | normalize}}
 </template>
 
 <script>
@@ -18,4 +18,5 @@ export default {
 .card
   margin-top 10px
   margin-bottom 10px
+  text-decoration none
 </style>

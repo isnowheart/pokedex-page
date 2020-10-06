@@ -1,7 +1,14 @@
 import api from './pokeApi'
 
-function list(){
-    return api.get('/pokemon')
+function list() {
+  return api.get('/pokemon')
 }
 
-export default { list }
+function show(pokemonName) {
+  return api.get(`/pokemon/${pokemonName}`)
+}
+
+export default { 
+  list,
+  show,
+ }
