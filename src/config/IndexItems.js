@@ -1,6 +1,6 @@
 export default [
   {
-    title: 'Regions',
+    title: 'Regiões',
     icon: 'text-success far fa-map',
     link: 'regions.index',
   },
