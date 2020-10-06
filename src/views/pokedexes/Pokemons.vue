@@ -8,7 +8,7 @@
       .column.col-3.col-lg-4.col-md-6.col-sm-12(v-for="pokemon in filteredPokemonsList" :key="pokemon.entry_number")
         row(:pokemon="pokemon")
     empty-container(v-else :subtitle="emptyMessage")
-      button.btn.btn-primary(slot="action" @click="filterList('')") Clean search
+      button.btn.btn-primary(slot="action" @click="filterList('')") Limpar pesquisa
   .loading.loading-lg(v-else)
 </template>
 

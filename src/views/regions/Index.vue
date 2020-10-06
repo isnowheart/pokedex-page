@@ -1,12 +1,13 @@
 <template lang="pug">
 .container.grid-xl(v-if="!loading")
   .filter-field
+    .regions-count.text-size Regiões: {{countRegions}}  
     filter-field(@search="filterList" placeholder="Search regions")
   .columns(v-if="countRegions")
     .column.col-3.col-lg-4.col-md-6.col-sm-12(v-for="region in filteredRegionsList.results" :key="region.name")
       region-row(:region="region")
   empty-container(v-else :subtitle="emptyMessage")
-    button.btn.btn-primary(slot="action" @click="filterList('')") Clean search
+    button.btn.btn-primary(slot="action" @click="filterList('')") Limpar pesquisa
 .loading.loading-lg(v-else)
 </template>
 

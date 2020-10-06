@@ -2,7 +2,7 @@
 .container.grid-xl(v-if="!loading")
   pokedex-list(:pokedexesList="filteredPokedexesList" :allowFilter="true" @filterList="filterList")
     empty-container(slot="empty-pokedexes" :subtitle="emptyContainerSubtitle")
-      button.btn.btn-primary(slot="action" @click="filterList('')") Clean search
+      button.btn.btn-primary(slot="action" @click="filterList('')") Limpar pesquisa
 .loading.loading-lg(v-else)
 </template>
 
