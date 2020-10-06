@@ -2,7 +2,7 @@
 .container.grid-xl(ref="header")
   div(v-if="!loading")
     .filter-field
-      .pokemons-count.text-size Total pokemons count: {{ totalPokemonsEntries }}
+      .pokemons-count.text-size Total de pokemons: {{ totalPokemonsEntries }}
     .columns
       .column.col-3.col-lg-6.col-sm-12(
         v-for="pokemon in pokemonsList",

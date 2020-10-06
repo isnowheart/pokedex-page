@@ -6,8 +6,8 @@
       i.fas.fa-camera.fa-4x.fa-fw
     .pokemon-info
       .text-size Id: {{currentPokemon.id | pokedexEntry}}
-      .text-size Name: {{currentPokemon.name | capitalize}}
-      .text-size Type(s): 
+      .text-size Nome: {{currentPokemon.name | capitalize}}
+      .text-size Tipo(s): 
         span.chip(v-for="type in currentPokemon.types" :key="type.slot" :style="{background: pokemonTypes[type.type.name].color}") {{pokemonTypes[type.type.name].name}}
 .loading.loading-lg(v-else)
 </template>

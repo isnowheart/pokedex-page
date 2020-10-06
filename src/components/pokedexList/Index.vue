@@ -1,7 +1,7 @@
 <template lang="pug">
 .container.grid-xl
   .pokedex-header
-    .pokedexes-counter.text-size Available Pokedexes: {{pokedexesCount}}
+    .pokedexes-counter.text-size Pokedexes disponíveis: {{pokedexesCount}}
     filter-field(v-if="allowFilter" @search="filterList" placeholder="Search pokedexes")
   div(v-if="pokedexesCount")
     .columns
