@@ -1,14 +1,16 @@
 import api from './pokeApi'
+import PaginationOffsetHelper from '@/lib/PaginationOffsetHelper'
 
-function list() {
-  return api.get('/pokemon')
+function list(page) {
+  const offset = PaginationOffsetHelper(page)
+  return api.get(`/pokemon?offset=${offset}`)
 }
 
 function show(pokemonName) {
   return api.get(`/pokemon/${pokemonName}`)
 }
 
-export default { 
+export default {
   list,
   show,
- }
+}
