@@ -24,7 +24,6 @@ export default {
       this.$emit('search', this.searchInputModel)
     },
   },
-    
 }
 </script>
 
