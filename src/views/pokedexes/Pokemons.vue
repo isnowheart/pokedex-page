@@ -3,7 +3,7 @@
   div(v-if="!loading")
     .filter-field
       .pokemons-count.text-size Pokemons: {{pokemonsCount}}
-      filter-field(@search="filterList" placeholder="Search pokemons")
+      filter-field(@search="filterList" placeholder="Procurar pokemons")
     .columns(v-if="pokemonsCount")
       .column.col-3.col-lg-4.col-md-6.col-sm-12(v-for="pokemon in filteredPokemonsList" :key="pokemon.entry_number")
         row(:pokemon="pokemon")

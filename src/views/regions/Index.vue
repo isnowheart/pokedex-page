@@ -2,7 +2,7 @@
 .container.grid-xl(v-if="!loading")
   .filter-field
     .regions-count.text-size Regiões: {{countRegions}}  
-    filter-field(@search="filterList" placeholder="Search regions")
+    filter-field(@search="filterList" placeholder="Procurar regiõe")
   .columns(v-if="countRegions")
     .column.col-3.col-lg-4.col-md-6.col-sm-12(v-for="region in filteredRegionsList.results" :key="region.name")
       region-row(:region="region")
