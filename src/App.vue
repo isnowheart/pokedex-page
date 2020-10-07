@@ -2,16 +2,18 @@
 #app
   header-component
   router-view
+  music-controller-component
   .footer
     footer-component
 </template>
 
 <script>
 import HeaderComponent from '@/components/layouts/header/Header'
-import FooterComponent from '@/components/layouts/Footer';
+import FooterComponent from '@/components/layouts/Footer'
+import MusicControllerComponent from '@/components/layouts/MusicController';
 
 export default {
-  components: { HeaderComponent, FooterComponent }
+  components: { HeaderComponent, FooterComponent, MusicControllerComponent }
 }
 </script>
 

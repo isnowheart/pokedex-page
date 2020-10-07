@@ -3,8 +3,6 @@
   pokedex-list(:pokedexesList="filteredPokedexesList" :allowFilter="true" @filterList="filterList")
     empty-container(slot="empty-pokedexes" :subtitle="emptyContainerSubtitle")
       button.btn.btn-primary(slot="action" @click="filterList('')") Limpar pesquisa
-  br
-  br
 .loading.loading-lg(v-else)
 </template>
 
