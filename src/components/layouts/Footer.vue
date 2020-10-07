@@ -89,6 +89,7 @@ export default {
       }
     },
   },
+  
   created() {
       this.current = this.songs[this.index]
       this.player.src = (this.current.src)
@@ -125,8 +126,6 @@ export default {
       margin-right 2px
       border-radius 15%;
       box-shadow 0 4px 8px 0 rgba(0, 0, 0, 0.4)
-
-
 
     .img-trackctl
       width 5%
