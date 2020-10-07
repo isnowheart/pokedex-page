@@ -1,12 +1,14 @@
 <template lang="pug">
 .text-ellipsis
-  .autoplay(@onload="play")
-  card.volume.voldn(@click="voldn") – 
-  card.set-track.prev(@click="prev") <
-  card.play-section.play(v-if="!isPlaying" @click="play") Play
-  card.play-section.play(v-else @click="pause") Pause
-  card.volume.volup(@click="volup") +
-  card.set-track.next(@click="next") >
+  .card-music(@onload="play" isPlaying=true)
+    img.img-volume(@click="voldn" src="../../assets/image/voldn.png")
+    img.img-trackctl(@click="prev" src="../../assets/image/prev.png")
+  .card-music(@onload="play" isPlaying=true)    
+    img.img-play(v-if="!isPlaying" @click="play" src="../../assets/image/play.png")
+    img.img-play(v-else @click="pause" src="../../assets/image/pause.png")
+  .card-music(@onload="play" isPlaying=true)    
+    img.img-volume(@click="volup" src="../../assets/image/volup.png")
+    img.img-trackctl(@click="next" src="../../assets/image/next.png")
   .divider
   footer.text-dark
     a(href="https://github.com/isnowheart/pokedex-page" target="_blank") Pokedex-page
@@ -44,14 +46,12 @@ export default {
     play(song) {
       if (typeof song.src != "undefined") {
         this.current = song
-
         this.player.src = this.current.src
       }
-
       this.player.play()
       this.isPlaying = true
     },
-
+  
     pause() {
       this.player.pause()
       this.isPlaying = false
@@ -92,6 +92,10 @@ export default {
   created() {
       this.current = this.songs[this.index]
       this.player.src = (this.current.src)
+      this.player.volume = .50
+      this.player.load = true
+      this.player.autoplay = true
+      this.player.loop = true
   }
 }
 </script>
@@ -102,19 +106,33 @@ export default {
   .text-dark
     text-align center
 
-  .play-section 
-    justify-content center
+  .card-music
+    display flex
+    text-align center
+    justify-content left
     align-items center
-    padding 0px 20px 0px 20px
-    border 1px solid rgba(0, 0, 0, .4)
 
-  .volume, .set-track
-    flex-direction row
-    justify-content center
-    align-items center
-    padding 0px 20px 0px 20px
-    border 1px solid rgba(0, 0, 0, .4)
-    padding-left 0
-    padding-top 20px
+    .img-play
+      width 10.5%
+      height 100%
+      border-radius: 9%;
+      box-shadow 0 4px 8px 0 rgba(0, 0, 0, 0.4) 
 
+    .img-volume
+      width 5%
+      height 5%
+      margin-left 2px
+      margin-right 2px
+      border-radius 15%;
+      box-shadow 0 4px 8px 0 rgba(0, 0, 0, 0.4)
+
+
+
+    .img-trackctl
+      width 5%
+      height 5%
+      margin-left 2px
+      margin-right 2px
+      border-radius 15%;
+      box-shadow 0 4px 8px 0 rgba(0, 0, 0, 0.4)
 </style>
