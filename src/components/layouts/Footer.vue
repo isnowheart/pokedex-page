@@ -1,14 +1,12 @@
 <template lang="pug">
 .text-ellipsis
-  .card-music(@onload="play" isPlaying=true)
-    img.img-volume(@click="voldn" src="../../assets/image/voldn.png")
+  .music-box(@onload="play")
     img.img-trackctl(@click="prev" src="../../assets/image/prev.png")
-  .card-music(@onload="play" isPlaying=true)    
+    img.img-trackctl(@click="next" src="../../assets/image/next.png")
     img.img-play(v-if="!isPlaying" @click="play" src="../../assets/image/play.png")
     img.img-play(v-else @click="pause" src="../../assets/image/pause.png")
-  .card-music(@onload="play" isPlaying=true)    
-    img.img-volume(@click="volup" src="../../assets/image/volup.png")
-    img.img-trackctl(@click="next" src="../../assets/image/next.png")
+    img.img-trackctl(@click="voldn" src="../../assets/image/voldn.png")
+    img.img-trackctl(@click="volup" src="../../assets/image/volup.png")
   .divider
   footer.text-dark
     a(href="https://github.com/isnowheart/pokedex-page" target="_blank") Pokedex-page
@@ -106,32 +104,27 @@ export default {
   background-color #fff
   .text-dark
     text-align center
-
-  .card-music
+  .music-box
     display flex
     text-align center
-    justify-content left
-    align-items center
+    justify-content center
+    align-items center 
 
     .img-play
-      width 10.5%
-      height 100%
+      background-color #fff
+      width 85px
+      height 40px
       border-radius: 9%;
       box-shadow 0 4px 8px 0 rgba(0, 0, 0, 0.4) 
 
-    .img-volume
-      width 5%
-      height 5%
+    .img-trackctl
+      background-color #fff    
+      width 40px
+      height 40px
       margin-left 2px
       margin-right 2px
       border-radius 15%;
       box-shadow 0 4px 8px 0 rgba(0, 0, 0, 0.4)
 
-    .img-trackctl
-      width 5%
-      height 5%
-      margin-left 2px
-      margin-right 2px
-      border-radius 15%;
-      box-shadow 0 4px 8px 0 rgba(0, 0, 0, 0.4)
+
 </style>

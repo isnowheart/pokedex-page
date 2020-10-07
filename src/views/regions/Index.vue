@@ -8,6 +8,8 @@
       region-row(:region="region")
   empty-container(v-else :subtitle="emptyMessage")
     button.btn.btn-primary(slot="action" @click="filterList('')") Limpar pesquisa
+  br
+  br
 .loading.loading-lg(v-else)
 </template>
 

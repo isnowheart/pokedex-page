@@ -20,6 +20,8 @@
       :page="page",
       :totalPages="pokemonsListPages"
     )
+    br
+    br
   .loading.loading-lg(v-else)
 </template>
 

@@ -6,6 +6,8 @@
   .columns
     .column.col-4.col-md-6.col-sm-12(v-for="item in indexItems" :key="item.title")
       menu-row(:item="item")
+  br
+  br
 </template>
 
 <script>
