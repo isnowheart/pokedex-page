@@ -2,7 +2,6 @@
 .container.grid-xl(v-if="!loading")
   .pokemon-data
     img.pokemon-portrait(v-if="currentPokemon.sprites.front_default" :src="currentPokemon.sprites.front_default")
-
     .pokemon-portrait.empty(v-else)
       i.fas.fa-camera.fa-4x.fa-fw
     .pokemon-info
